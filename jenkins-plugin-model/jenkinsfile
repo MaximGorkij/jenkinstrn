@@ -14,7 +14,7 @@ pipeline {
 
                     // Use them in shell commands
                     sh 'docker --version'
-                    sh 'dotnet --info'
+                    sh 'opt/dotnet/dotnet --info'
                 }
             }
         }
