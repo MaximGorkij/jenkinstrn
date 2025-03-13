@@ -50,8 +50,9 @@ pipeline {
                 sh 'chmod 776 jenkins-plugin-model/ci/*.sh'
                 sh 'echo ci'
                 sh 'ls -all jenkins-plugin-model/ci'
+                sh 'echo cat'
+                sh './jenkins-plugin-model/ci/01-build.sh'
                 sh 'echo run'
-                sh 'pwd && ls -all'
                 sh './jenkins-plugin-model/ci/01-build.sh'
             }
         }
