@@ -47,7 +47,7 @@ pipeline {
 
             steps {
                 sh 'echo chmod'
-                sh 'chmod 766 jenkins-plugin-model/ci/01-build.sh'
+                sh 'chmod 776 jenkins-plugin-model/ci/01-build.sh'
                 sh 'echo ci'
                 sh 'ls -all jenkins-plugin-model/ci'
                 sh 'echo run'
@@ -57,7 +57,7 @@ pipeline {
 
         stage('Unit Test') {
             steps {
-                sh 'chmod 766 jenkins-plugin-model/ci/03-unit-test.sh'
+                sh 'chmod 776 jenkins-plugin-model/ci/03-unit-test.sh'
                 sh './jenkins-plugin-model/ci/03-unit-test.sh'
                 mstest testResultsFile:"**/*.trx"
             }
