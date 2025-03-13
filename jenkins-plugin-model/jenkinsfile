@@ -51,7 +51,7 @@ pipeline {
                 sh 'echo ci'
                 sh 'ls -all jenkins-plugin-model/ci'
                 sh 'echo cat'
-                sh 'cat ./jenkins-plugin-model/ci/01-build.sh'
+                sh 'cat jenkins-plugin-model/src/Pi.Web/Pi.Web.csproj'
                 sh 'echo run'
                 sh './jenkins-plugin-model/ci/01-build.sh'
             }
