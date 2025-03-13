@@ -47,17 +47,17 @@ pipeline {
 
             steps {
                 sh 'echo chmod'
-                sh 'chmod 776 jenkins-plugin-model/ci/01-build.sh'
+                sh 'chmod 776 jenkins-plugin-model/ci/*.sh'
                 sh 'echo ci'
                 sh 'ls -all jenkins-plugin-model/ci'
                 sh 'echo run'
+                sh 'pwd'
                 sh './jenkins-plugin-model/ci/01-build.sh'
             }
         }
 
         stage('Unit Test') {
             steps {
-                sh 'chmod 776 jenkins-plugin-model/ci/03-unit-test.sh'
                 sh './jenkins-plugin-model/ci/03-unit-test.sh'
                 mstest testResultsFile:"**/*.trx"
             }
@@ -75,8 +75,7 @@ pipeline {
                     echo "Build Number: $buildNumber"
                 
                 withCredentials([usernamePassword(credentialsId: '620b27a7-0e6c-4f2a-b7da-760020a42551', usernameVariable: 'DOCKER_HUB_USER', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {                      
-                    sh "chmod +x jenkins-plugin-model/ci/04-push.sh"
-                    sh "jenkins-plugin-model/ci/04-push.sh $buildNumber"
+                    sh "./jenkins-plugin-model/ci/04-push.sh $buildNumber"
                 }
                 echo "Build Completed - Job Name: $jobName  --  Build Number: $buildNumber"
             }
