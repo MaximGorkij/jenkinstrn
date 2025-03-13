@@ -36,7 +36,9 @@ pipeline {
         }
 
         stage('Build Application') {
+            
             steps {
+                sh 'ls -all'
                 sh 'chmod +x ./jenkins-plugin-model/ci/01-build.sh && ./jenkins-plugin-model/ci/01-build.sh'
             }
         }
