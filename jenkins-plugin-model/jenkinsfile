@@ -34,11 +34,18 @@ pipeline {
                 }
             }
         }
-
-        stage('Build Application') {
-            
+        stage('LS'){
             steps {
-                sh 'ls -all'
+                sh 'echo root'
+                sh 'ls -all jenkins-plugin-model'
+                sh 'echo ci'
+                sh 'ls -all jenkins-plugin-model/ci'
+
+            }
+        }
+        stage('Build Application') {
+
+            steps {
                 sh 'chmod +x jenkins-plugin-model/ci/01-build.sh && jenkins-plugin-model/ci/01-build.sh'
             }
         }
