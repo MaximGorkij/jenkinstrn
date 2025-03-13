@@ -48,6 +48,8 @@ pipeline {
             steps {
                 sh 'echo chmod'
                 sh 'chmod 766 jenkins-plugin-model/ci/01-build.sh'
+                sh 'echo ci'
+                sh 'ls -all jenkins-plugin-model/ci'
                 sh 'echo run'
                 sh './jenkins-plugin-model/ci/01-build.sh'
             }
