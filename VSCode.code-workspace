@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../jenkinstrn-shared-libs"
+		},
+		{
+			"path": "../dev_ops_dc"
 		}
 	],
 	"settings": {
